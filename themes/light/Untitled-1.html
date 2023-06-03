@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Adrian Quevedo">
+    <meta name="description" content="Spectragram is a jQuery plugin using the Instagram Basic Display API to fetch and display a public user media inside a list or any container you define.">
+    <meta name="keywords" content="jquery, open source, spectragram, Instagram Basic Display API, instagram gallery, photo feed, instagram">
+    <meta name="robots" content="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and home link-->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Humanstxt.org-->
+    <link type="text/plain" rel="author" href="humans.txt">
+    <!-- CSS-->
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/normalize.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" title="Spectragram">
+    <!--[if IE]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
+    <title>jQuery Spectragram</title>
+    <style>
+        .demoFeed li{
+            width: 25%;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="miniDemo">
+        <h2 class="title">What Spectragram can do</h2>
+        <div class="demo-column">
+            <ul class="demoFeed userFeed">
+            </ul>
+        </div>
+    </section>
+<!-- Twitter Button Script -->
+<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+<script src="https://unpkg.com/jquery@3.5.0/dist/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="script/jquery-3.5.0.min.js">\x3C/script>')</script>
+<!-- script concatenated and minified-->
+<script src="https://unpkg.com/spectragram@2.0.0/spectragram.min.js"></script>
+<script>window.jQuery.fn.spectragram || document.write('<script src="spectragram.min.js">\x3C/script>')</script>
+<script src="script/site.js"></script>
+
+<!-- SPECTRAGRAM DEMOS SCRIPT -->
+<script>
+$(document).ready(function(){
+
+	/*
+		Read the Documentation ( https://github.com/adrianengine/jquery-spectragram )
+
+		Don't forget to set your Instagram accessToken, clientID and the query:
+
+		jQuery.fn.spectragram.accessData = {
+			accessToken: '[your-instagram-access-token]'
+		};
+	*/
+    jQuery.fn.spectragram.accessData = {
+			accessToken: 'IGQVJYRmdnTFE0bVlsRGpGTW9JZA05MZAHdpWGtPeUo0ZAXlJUWJvNXlZAdE1aaGVJVnBBcTI5VFRDaEUzcWpIdkNkOFptaEE1R0xzdjNSWFVtT2ZAjNjdjUUhvNGVHempfSHVBRk1IZAm9R'
+		};
+	//Call spectagram function on the container element and pass it your query
+	//Get the most recent media published by a user.
+	$('.userFeed').spectragram({
+		size: 'small',
+		max: 12
+    });
+
+	//Set the wrapper HTML tag of the photos
+	// $('.introPics').spectragram({
+	// 	max: 2,
+	// 	wrapEachWith: '<span></span>'
+    // });
+});
+</script>
+
+</body>
+</html>
